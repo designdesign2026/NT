@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewsTrackers - #1 For Hyperlocal Coverage</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --red: #C41230;
+    --dark-red: #A00E28;
+    --dark: #1a1a1a;
+    --gray-text: #555;
+    --gray-light: #f5f5f5;
+    --white: #ffffff;
+    --border: #ddd;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    background: #2a2a2a;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.1)),
+      url('hero-bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-logo {
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.6;
+    max-width: 560px;
+    margin-top: 16px;
+    background: none;
+    padding: 0;
+    position: relative;
+  }
+
+  /* ===== INTRO TEXT SECTION ===== */
+  .intro-section {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .intro-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--gray-text);
+    font-weight: 400;
+  }
+
+  /* ===== PEDESTRIAN SAFETY SECTION ===== */
+  .safety-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 40px 60px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .safety-image {
+    flex-shrink: 0;
+    width: 260px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .traffic-light-svg {
+    width: 220px;
+    height: 280px;
+  }
+
+  .safety-content {
+    flex: 1;
+  }
+
+  .safety-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid var(--dark);
+    padding: 6px 16px;
+    margin-bottom: 16px;
+  }
+
+  .safety-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+
+  .safety-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--red);
+  }
+
+  .safety-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--gray-text);
+  }
+
+  /* ===== RED DIVIDER ===== */
+  .red-divider {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .red-divider-line {
+    height: 4px;
+    background: linear-gradient(90deg, var(--red) 0%, var(--red) 70%, #e88 100%);
+    border-radius: 2px;
+  }
+
+  /* ===== SHARE / FORM SECTION ===== */
+  .form-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 50px 40px 70px;
+  }
+
+  .form-section .share-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .form-section .form-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+
+  .form-section .form-contact {
+    font-size: 13px;
+    color: var(--gray-text);
+    margin-bottom: 30px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .form-group label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    border: 1.5px solid var(--border);
+    padding: 12px 14px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--red);
+  }
+
+  .form-group textarea {
+    height: 140px;
+    resize: vertical;
+  }
+
+  .submit-btn {
+    margin-top: 10px;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border: none;
+    padding: 16px 60px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .submit-btn:hover {
+    background: var(--dark-red);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--dark);
+    padding: 30px 40px;
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 13px;
+    color: #999;
+  }
+
+  .footer a {
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 700px) {
+    .hero-title { font-size: 32px; }
+    .number-one { font-size: 48px; width: 54px; height: 54px; }
+    .number-tagline { font-size: 15px; }
+    .safety-section { flex-direction: column; gap: 30px; }
+    .safety-image { width: 200px; height: 240px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .intro-section, .form-section { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <img src="NewsTracker-Logo.png" alt="NewsTrackers - #1 For Hyperlocal Coverage" class="hero-logo">
+    <div class="hero-subtitle">
+      NewsTrackers is dedicated to collecting information about the wide range of issues impacting New Yorkers across the five boroughs and ensuring that members of the media have access to critical information to inform their work.
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <p class="intro-text">
+    New York City is one of the most complicated, fast-paced, and important cities in the world. Every day, hundreds – if not thousands – of stories are unfolding. It is impossible to stay on top of all of them, and easy for important and impactful news to fall through the cracks.
+  </p>
+</section>
+
+<!-- PEDESTRIAN SAFETY -->
+<section class="safety-section">
+  <div class="safety-image">
+    <img src="shutterstock_1459641398.jpg" alt="Bicycle traffic light showing red" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+  </div>
+  <div class="safety-content">
+    <div class="safety-badge">
+      <div class="safety-dot"></div>
+      <span class="safety-label">Pedestrian Safety</span>
+    </div>
+    <p class="safety-text">
+      NewsTrackers helps prevent that from happening. Right now, we are focused on the pedestrian safety crisis that is occurring across the city, collecting stories of individuals who have been injured by or had near-misses with irresponsible riders of bikes and/or e-bikes.
+    </p>
+  </div>
+</section>
+
+<!-- RED DIVIDER -->
+<div class="red-divider">
+  <div class="red-divider-line"></div>
+</div>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="share-label">Share Your Story</div>
+  <h2 class="form-title">Report an Incident</h2>
+  <p class="form-contact">If you want to share your story, please contact us at:</p>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Date of Incident</label>
+      <input type="text" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Location (Borough, Neighborhood, Intersection)</label>
+      <input type="text" placeholder="">
+    </div>
+    <div class="form-group full-width">
+      <label>Describe What Happened</label>
+      <textarea placeholder=""></textarea>
+    </div>
+  </div>
+
+  <button class="submit-btn">Submit Incident</button>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>If you want to share your story, please contact us at <a href="mailto:info@newstrackers.com">info@newstrackers.com</a></p>
+</footer>
+
+</body>
+</html>
